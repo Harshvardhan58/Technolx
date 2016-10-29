@@ -9,13 +9,13 @@
         $_SESSION['img']=$img;
         $_SESSION['email']=$email;
         $sql="SELECT * FROM login WHERE email='$email'";
-        $rs=mysql_query($sql) or die("Error in query".mysql_error());
-        if(mysql_num_rows($rs)==1){
+        $rs=mysqli_query($con,$sql) or die("Error in query".mysqli_error());
+        if(mysqli_num_rows($rs)==1){
             echo "dashboard";
         }
         else{
             $sql="INSERT INTO login (name,email,img) VALUES ('$name','$email','$img')";
-            $rs=mysql_query($sql) or die("Error in query".mysql_error());
+            $rs=mysqli_query($sql) or die("Error in query".mysqli_error());
         }
     }
 
